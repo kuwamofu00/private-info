@@ -72,33 +72,52 @@ Worksheets("sheet1").Cells(3, 3) = Worksheets("sheet1").Cells(2, 3).Value / Work
 Worksheets("sheet1").Cells(3, 3).NumberFormatLocal = "00.0%"<br>
 MsgBox "予定の合計、実績の合計、進捗率を計算しました"<br>
 End Sub<br>
+
+Private Sub Worksheet_Change(ByVal Target As Range)<br>
+Dim Timestump As Range<br>
+Dim t As Range<br>
+n = Cells(Rows.Count, 2).End(xlUp).Row<br>
+Set Timestump = Range(Worksheets("sheet3").Cells(5, 4), Cells(n, 4))<br>
+If Intersect(Target, Timestump) Is Nothing Then<br>
+Exit Sub<br>
+Else<br>
+Debug.Print Target.Address(False, False)<br>
+Target.Offset(0, 1).Value = "〇"<br>
+Target.Offset(0, 2).Value = Now<br>
+End If<br>
+End Sub<br>
+
+Sub TEST1()<br>
+n = Cells(Rows.Count, 2).End(xlUp).Row<br>
+Worksheets("sheet3").Range(Cells(4, 7), Cells(n, 7)).AutoFilter<br>
+Worksheets("sheet3").Range(Cells(4, 7), Cells(n, 7)).AutoFilter 1, "作業中"<br>
+End Sub<br>
+
+Sub TEST2()<br>
+n = Cells(Rows.Count, 2).End(xlUp).Row<br>
+Worksheets("sheet3").Range(Cells(4, 7), Cells(n, 7)).AutoFilter<br>
+Worksheets("sheet3").Range(Cells(4, 7), Cells(n, 7)).AutoFilter 1, "完了"<br>
+End Sub
+
+Sub TEST3()<br>
+n = Cells(Rows.Count, 2).End(xlUp).Row<br>
+Worksheets("sheet3").Range(Cells(4, 5), Cells(n, 5)).AutoFilter<br>
+Worksheets("sheet3").Range(Cells(4, 5), Cells(n, 5)).AutoFilter 1, "〇"<br>
+End Sub<br>
+
+Sub TEST4()<br>
+ActiveSheet.AutoFilterMode = False<br>
+End Sub<br>
+
 </p>
     <p>
-    <a class="btn2 btn-lg btn-secondary-2 fw-bold" >説明と準備</a>
+    <a class="btn2 btn-lg btn-secondary-2 fw-bold" ></a>
       <div class="font-grey">
-        <a>
+        <a>test
 
-説明<br>      
-  一番下の行数を取得しているので行が追加され行数が増えてもプログラムを変更することなく自動で計算します<br>
-  シートを選択しなおすとプログラムが動くようになっています<br>
-  検索対象の"予定"と"実績"の合計を計算し、進捗率を出します。<br><br>
-  準備<br>
-sheet1のセルB1に”予定合計”と入力、B2に”実績合計と入力”、B3に”進捗率”と入力<br>
-セルB5に”予定”と入力、横のC5には数値を入力、その下のセルのB6に”実績と入力<br>
-横のC6には数値を入力”、その後は適当な行までそれを繰り返す<br>
-alt＋F11でエディターを出し、sheet1にVBAコードをコピペ。<br>
         </a>
       </div>
-<div class="ta-ta">
-      <a>image</a>        
-      <br>
-        <a class="imimage"><img src="img1.png" width="400" height="300" border="1"></a>
 
-        <a class="imimage"><img src="img2.png" width="400" height="300" border="1"></a>
-</div>
-      <div class ="btn-secondary-3">
-  <a>2021年3月6日作成</a>
-    </div>
 
     </p>
     
@@ -116,5 +135,10 @@ alt＋F11でエディターを出し、sheet1にVBAコードをコピペ。<br>
 
 </body>
 </html>
+
+
+
+
+
 
 
