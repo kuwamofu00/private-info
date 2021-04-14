@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="ja" class="h-100"><head>
     <meta charset="utf-8">
@@ -89,23 +91,20 @@
 <br>
       ⭕ファイルを並べて表示してみる　index2.phpの７行目と11行目に差分有り<br>
         kuwamofu@kuwamofu-H81M-D3V-JP:~/memo$ diff -y index1.php index2.php<br>
-<?php
-echo htmlspecialchars('
 
-        <!DOCTYPE html>							                                      <!DOCTYPE html><br>
-        <html lang="ja" class="h-100"><head>				                      <html lang="ja" class="h-100"><head><br>
-        <meta charset="utf-8">					                                  <meta charset="utf-8"><br>
-            <meta name="viewport" content="width=device-width, initia	      <meta name="viewport" content="width=device-width, initia<br>
-            <meta name="description" content="本当においしいものを生	           <meta name="description" content="本当においしいものを生<br>
-            <title>test</title>					                                <title>test</title><br>
+        !DOCTYPE html							                                      !DOCTYPE html<br>
+        html lang="ja" class="h-100" head				                      html lang="ja" class="h-100" head<br>
+        meta charset="utf-8"					                                  meta charset="utf-8"<br>
+            meta name="viewport" content="width=device-width, initia	      meta name="viewport" content="width=device-width, initia<br>
+            meta name="description" content="本当においしいものを生	           meta name="description" content="本当においしいものを生<br>
+            title test /title					                                title test /title<br>
         							                                                   |	koko<br>
-            <!-- Bootstrap core CSS -->					                              <!-- Bootstrap core CSS --><br>
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-	        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-<br>
-            <link rel="stylesheet" href="index.css">			                     <link rel="stylesheet" href="index.css"><br>
+            !-- Bootstrap core CSS -->					                              <!-- Bootstrap core CSS --><br>
+            link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-	        link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-<br>
+            link rel="stylesheet" href="index.css"			                     link rel="stylesheet" href="index.css"<br>
         							                                                   |	koko<br>
-        <style>							                                                   <style><br>
+        style							                                                   style <br>
               .bd-placeholder-img {					                                        .bd-placeholder-img {<br>
-');
 <br>
       ......................................................................................................<br>
       パターン２ 差分のある箇所がわかるが差分のあるファイルを特定を特定できないとき<br>
